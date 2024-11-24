@@ -18,9 +18,14 @@ export async function createNewPost(req, res) {
 }
 
 export async function uploadImage(req, res) {
-  const newPost = req.body;
+  const newPost = {
+    description: "Um gatinho fofo breto e branco.",
+    imageURL: req.file.originalname,
+    alt: ""
+  }
   try {
     const postCreated = await createPost(newPost)
+    const updatedImage = `uploads/${postCreated.insertedId}.png`
     res.status(200).json(postCreated);
   } catch (error) {
     console.error(error.message);
