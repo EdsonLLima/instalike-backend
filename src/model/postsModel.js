@@ -11,5 +11,5 @@ export async function getAllPosts() {
 export async function createPost(newPost) {
   const db = connection.db("instabyte-imersao")
   const collection = db.collection("posts")
-  return collection.insertOne(novoPost)
+  return collection.insertOne(newPost)
 }
