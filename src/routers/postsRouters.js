@@ -1,10 +1,10 @@
 import express from "express";
-import { postsList } from "../controllers/postsController.js";
+import { createNewPost, postsList } from "../controllers/postsController.js";
 
 const routes = (app) => {
   app.use(express.json())
   app.get("/posts", postsList);
-  app.post("/posts",)
+  app.post("/posts", createNewPost)
 }
 
 export default routes;
