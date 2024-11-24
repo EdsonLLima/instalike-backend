@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { createNewPost, postsList } from "../controllers/postsController.js";
+import { createNewPost, postsList, uploadImage } from "../controllers/postsController.js";
 
 const upload = multer({ dest: "./uploads" })
 

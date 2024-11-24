@@ -16,3 +16,14 @@ export async function createNewPost(req, res) {
   }
 
 }
+
+export async function uploadImage(req, res) {
+  const newPost = req.body;
+  try {
+    const postCreated = await createPost(newPost)
+    res.status(200).json(postCreated);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ "Erro": "Falha na requisição" });
+  }
+}
