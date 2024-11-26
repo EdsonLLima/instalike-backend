@@ -44,6 +44,7 @@ export async function updateNewPost(req, res) {
     alt: req.body.alt
   }
   try {
+    const imageBuffer = fs.readFileSync(`uploads/${id}.png`)
     const postCreated = await updatePost(id, post)
     res.status(200).json(postCreated);
   } catch (error) {
