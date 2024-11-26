@@ -38,13 +38,13 @@ export async function uploadImage(req, res) {
 export async function updateNewPost(req, res) {
   const id = req.params.id;
   const urlImage = `http://localhost:3000/${id}.png`;
-  const updatePost = {
+  const post = {
     imageURL: urlImage,
     description: req.body.description,
     alt: req.body.alt
   }
   try {
-    const postCreated = await updatePost(newPost)
+    const postCreated = await updatePost(id, post)
     res.status(200).json(postCreated);
   } catch (error) {
     console.error(error.message);
