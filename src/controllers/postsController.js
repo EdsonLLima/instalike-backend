@@ -42,10 +42,10 @@ export async function updateNewPost(req, res) {
 
   try {
     const imageBuffer = fs.readFileSync(`uploads/${id}.png`);
-    const description = gerarDescricaoComGemini;
+    const description = await gerarDescricaoComGemini(imageBuffer);
     const post = {
       imageURL: urlImage,
-      description: req.body.description,
+      description: description,
       alt: req.body.alt
     }
     const postCreated = await updatePost(id, post)
