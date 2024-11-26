@@ -34,3 +34,21 @@ export async function uploadImage(req, res) {
     res.status(500).json({ "Erro": "Falha na requisição" });
   }
 }
+
+export async function updateNewPost(req, res) {
+  const id = req.params.id;
+  const urlImage = `http://localhost:3000/${id}.png`;
+  const updatePost = {
+    imageURL: urlImage,
+    description: req.body.description,
+    alt: req.body.alt
+  }
+  try {
+    const postCreated = await updatePost(newPost)
+    res.status(200).json(postCreated);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ "Erro": "Falha na requisição" });
+  }
+
+}
