@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { ObjectId } from "mongodb";
 import ConnectBank from "../config/dbconfig.js";
 const connection = await ConnectBank(process.env.STRING_CONNECTION);
